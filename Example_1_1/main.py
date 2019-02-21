@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import sklearn.linear_model
+import sklearn.neighbors
 import numpy as np
 
 
@@ -32,7 +33,8 @@ if __name__ == "__main__":
     X = np.c_[country_stats["GDP per capita"]]
     Y = np.c_[country_stats["Life satisfaction"]]
 
-    model = sklearn.linear_model.LinearRegression()
+    # model = sklearn.linear_model.LinearRegression()
+    model = sklearn.neighbors.KNeighborsRegressor(n_neighbors=3)
     model.fit(X, Y)
 
     for x in range(1, 50):
